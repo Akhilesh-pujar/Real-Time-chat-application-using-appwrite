@@ -1,6 +1,6 @@
 /* Global settings */
 
-/* :root{
+:root{
   --mainBgColor:rgba(20,20,31,11);
   --secondaryBgColor:rgba(27,27,39,1);
   --borderColor1:rgba(40,41,57,1);
@@ -31,11 +31,11 @@ body{
 .container{
 max-width: 600px;
 margin:20px auto;
-} */
+}
 
 /* Login & Register Pages */
 
-/* .auth--container{
+.auth--container{
 height: 100vh;
 display: flex;
 align-items: center;
@@ -53,7 +53,7 @@ display: flex;
 flex-direction: column;
 gap: 1em;
 padding: 0.5em 0;
-} */
+}
 
 
 
@@ -135,6 +135,8 @@ border:1px solid var(--borderColor1);
 display: flex;
 flex-direction: column;
 gap: 0.5em;
+
+ 
 }
 
 .send-btn--wrapper{
