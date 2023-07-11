@@ -4,6 +4,7 @@ import client,{ COLLECTION_ID, DATABASE_ID, databases } from "../apwriteConfig";
 
 import {ID , Query} from "appwrite"
 import {Trash2} from 'react-feather'
+import { Link } from "react-router-dom";
 
 function Room() {
 
@@ -69,6 +70,10 @@ const handlesubmit = async(e)=>{
   }
   return (
     <main className="container">
+      <Link to="/login">
+      <button>Login</button>
+      </Link>
+     
 
       <div className="room--container">
       <form id="message--form" onSubmit={handlesubmit}>
