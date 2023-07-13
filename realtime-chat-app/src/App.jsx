@@ -1,9 +1,10 @@
 import './App.css'
-import PrivateRoutes from './components/PrivateRoutes'
+import PrivateRoutes from './utils/PrivateRoutes'
 import LoginPage from './pages/LoginPage'
 import Room from './pages/Room'
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import { AuthProvider } from './utils/AuthContext'
+import RegisterPage from './pages/RegisterPage'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
       <Route path='/' element={ <PrivateRoutes/>}>
       <Route path='/' element={ <Room/>}/>
+      <Route path='/register' element={ <RegisterPage/>}/>
       </Route>
 
 

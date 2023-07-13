@@ -1,5 +1,6 @@
+
 import { Outlet,Navigate } from "react-router-dom"
-import { userAuth } from "../utils/AuthContext"
+import { userAuth } from "./AuthContext"
 
 
 function PrivateRoutes() {

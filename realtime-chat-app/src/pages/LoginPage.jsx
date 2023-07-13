@@ -1,17 +1,21 @@
 import { useEffect,useState} from "react"
 import { userAuth } from "../utils/AuthContext"
 import { useNavigate } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 function LoginPage() {
 
     const {user,handleUserLogin} = userAuth()
-    const navigate = useNavigate()
 
     const [cred , setcred] = useState({
-        email:"",
-        password:''
-    })
+      email:"",
+      password:""
+  })
 
+    
+    const navigate = useNavigate()
+
+   
     useEffect(()=>{
      if(user){
         navigate('/')
@@ -28,14 +32,12 @@ function LoginPage() {
     }
 
 
-    const handleLogin =()=>{
-
-    }
+  
   return (
     <div>
       <div className="auth--container">
               <div className="form--wrapper">
-                <form onSubmit={(e)=>{handleLogin(e.cred)}}>
+                <form onSubmit={(e)=>{handleUserLogin(e,cred)}}>
                     <div className="field--wrapper">
                      <label>Email</label>
                      <input type ="email"
@@ -43,7 +45,7 @@ function LoginPage() {
                      name="email"
                      placeholder="enter your email..."
                      value={cred.email}
-                     onChange={handleinputChange}
+                     onChange={(e)=>{handleinputChange(e)}}
                      ></input>
                     </div>
 
@@ -54,7 +56,7 @@ function LoginPage() {
                      name="password"
                      placeholder="enter your password..."
                      value={cred.password}
-                     onChange={handleinputChange}
+                     onChange = {(e)=>{handleinputChange(e)}}
                      autoComplete="on"
                      ></input>
                     </div>
@@ -63,7 +65,7 @@ function LoginPage() {
                        <button className="btn btn--lg btn--main" value="Login" type="submit">Login</button>
                     </div>
                 </form>
-
+                <p>Dont have an account? Register <Link to="/register">here</Link></p>
               </div>
       </div>
     </div>
