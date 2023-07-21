@@ -9,7 +9,7 @@ const AuthContext = createContext()
 
 export const AuthProvider = ({children}) => {
 
-  const [user,setuser] = useState(true)
+  const [user,setuser] = useState(null)
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
@@ -25,6 +25,7 @@ export const AuthProvider = ({children}) => {
     }
     catch(error){
       console.log(error)
+      setuser(null)
     }
     setLoading(false);
    }
@@ -46,7 +47,7 @@ export const AuthProvider = ({children}) => {
      }
     }
 
-    const userLoggout = async ()=>{
+    const userLogout = async ()=>{
      const response = await account.deleteSession('current');
      setuser(null)
     }
@@ -77,15 +78,22 @@ export const AuthProvider = ({children}) => {
     const contextData = {
     user,
     handleUserLogin,
-    userLoggout,
+    userLogout,
     handleRegister,
 
     }
-return <AuthContext.Provider value={contextData}>
+return (
+<AuthContext.Provider value={contextData}>
   {loading? <p>loading...</p>: children}
 </AuthContext.Provider>
+);
+
+
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const userAuth = ()=>{return useContext(AuthContext)}
+export const useAuth = ()=> {
+  return useContext(AuthContext);
+}
+
 export default AuthContext;

@@ -1,16 +1,16 @@
 
 import {LogOut,LogIn} from "react-feather"
-import { userAuth } from "../utils/AuthContext"
+import { useAuth } from "../utils/AuthContext"
 import { Link } from 'react-router-dom'
 function Navbar() {
 
-    const {user,userLoggout} = userAuth()
+    const {user,userLogout} = useAuth()
   return (
     <div id="header--wrapper">
       {user ? (
         <>
         Welcome {user.name}
-        <LogOut onClick={userLoggout} className="header--link"/>
+        <LogOut onClick={userLogout} className="header--link"/>
 
         </>
       ):(

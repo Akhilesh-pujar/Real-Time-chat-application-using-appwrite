@@ -5,13 +5,13 @@ import Navbar from "../components/Navbar";
 import {ID , Query,Permission,Role} from "appwrite"
 import {Trash2} from 'react-feather'
 
-import { userAuth } from "../utils/AuthContext";
+import { useAuth } from "../utils/AuthContext";
 
 function Room() {
 
   const [message,setmessages] = useState([])
   const [messageBody,setMessageBody] =useState('')
-  const {user} = userAuth()
+  const {user} = useAuth()
 
 
   useEffect(()=>{

@@ -1,12 +1,12 @@
 import {useState} from 'react'
-import { userAuth } from '../utils/AuthContext'
+import { useAuth } from '../utils/AuthContext'
 import { Link } from 'react-router-dom'
 
 const RegisterPage = () => {
 
     const [credentials, setCredentials] = useState({name:'',email:'', password1:'', password2:''})
 
-    const {handleRegister} = userAuth()
+    const {handleRegister} = useAuth()
 
 
 
